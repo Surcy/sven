@@ -8,7 +8,7 @@ import Vuex from 'vuex'
 import dashboard from './modules/dashboard'
 import menu from './modules/menu'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production'
 

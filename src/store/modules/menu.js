@@ -3,7 +3,7 @@
  */
 import Vue from 'vue'
 import axios from 'axios'
-import api from '../../../config/api'
+// import api from '../../../config/api'
 Vue.prototype.$ajax = axios;
 
 const state = {

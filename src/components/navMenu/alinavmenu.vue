@@ -134,11 +134,6 @@
 
 <script>
   export default {
-    props: {
-      menudata: {
-        type: Object
-      }
-    },
     data() {
       return {
         menuIcon: this.$store.state.menu.menuIcon
@@ -152,5 +147,4 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../assets/css/aliyunNav/Css/console1412.css'
 </style>

@@ -192,5 +192,4 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '../../assets/css/aliyunNav/Css/console1412.css'
 </style>

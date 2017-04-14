@@ -4,7 +4,7 @@
 
 import Vue from 'vue'
 import axios from 'axios'
-import api from '../../../config/api'
+// import api from '../../../config/api'
 Vue.prototype.$ajax = axios;
 
 const state = {
@@ -23,7 +23,7 @@ const actions = {
       axios({
         method: 'post',
         withCredentials: true,
-        url: api.api.login.testUrl,
+        url: 'http://121.43.227.180:8080/v21/web/doLogin',
         params: {
           username: '15715519199',
           password: 'bb-care.com.cn'

@@ -42,10 +42,10 @@
         <!-- /product nav collapse-->
         <div class="viewFramework-product-body" id="mainFrameBody">
           <div class="content">
-            <el-breadcrumb separator="/" class="breadcrumb">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>面包屑</el-breadcrumb-item>
-            </el-breadcrumb>
+            <!--<el-breadcrumb separator="/" class="breadcrumb">-->
+              <!--<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>-->
+              <!--<el-breadcrumb-item>面包屑</el-breadcrumb-item>-->
+            <!--</el-breadcrumb>-->
             <router-view></router-view>
           </div>
         </div>
