@@ -7,6 +7,7 @@ import Vuex from 'vuex'
 // import * as getters from './getters'
 import dashboard from './modules/dashboard'
 import menu from './modules/menu'
+import product from './modules/product'
 
 Vue.use(Vuex);
 
@@ -17,7 +18,8 @@ export default new Vuex.Store({
   // getters,
   modules: {
     dashboard,
-    menu
+    menu,
+    product
   },
   // strict: debug,
   // plugins: debug ? [createLogger()] : []

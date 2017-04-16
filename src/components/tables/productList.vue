@@ -1,8 +1,11 @@
 <template>
   <div>
     <el-table
-    :data="tabledata"
-    style="width: 100%">
+    :data="filterList"
+    style="width: 100%"
+    stripe
+    highlight-current-row
+    @current-change="handleCurrentChange">
     <el-table-column type="expand">
       <template scope="props">
         <el-row>
@@ -55,6 +58,7 @@
       prop="desc">
     </el-table-column>
   </el-table>
+
     <div class="block">
       <el-pagination
         @size-change="handleSizeChange"
@@ -69,6 +73,7 @@
   </div>
 </template>
 <script>
+  import { mapGetters} from 'vuex'
   export default {
     data() {
       return {
@@ -109,24 +114,23 @@
         currentPage1: 5,
         currentPage2: 5,
         currentPage3: 5,
-        currentPage4: 4
+        currentPage4: 4,
+        currentRow: null
       }
     },
     methods: {
+      handleCurrentChange(val) {
+        this.currentRow = val;
+        this.$store.state.product.product = val;
+        console.log(this.currentRow);
+      },
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
-      },
-      handleCurrentChange(val) {
-        this.currentPage = val;
-        console.log(`当前页: ${val}`);
       }
     },
-    computed: {
-      tabledata:function () {
-//        this.table.splice(1,1);
-        return this.table;
-      }
-    }
+    computed: mapGetters({
+      filterList:'filterList'
+    }),
   }
 </script>
 
