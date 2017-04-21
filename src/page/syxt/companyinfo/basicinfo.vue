@@ -39,7 +39,6 @@
             </el-row>
         </el-tab-pane>
         <el-tab-pane label="认证信息">
-
         </el-tab-pane>
         <el-tab-pane label="企业成就">
 

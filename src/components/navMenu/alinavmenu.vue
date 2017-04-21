@@ -19,7 +19,8 @@
             </div>
           </div>
           <ul class="entrance-nav sidebar-trans" id="nav" style="height:auto;">
-            <li class="nav-item ng-scope">
+           <router-link to="/register">
+                <li class="nav-item ng-scope">
               <a class="ng-scope">
                 <div class="nav-icon">
                   <span class="glyphicon glyphicon-tasks"></span>
@@ -27,6 +28,7 @@
                 <span class="nav-title ng-binding">注册</span>
               </a>
             </li>
+           </router-link>
             <li class="nav-item ng-scope">
               <a href="javascript:;" data-submenu="3" data-count="4" data-url="Admin/Member/index"
                  class="ng-scope">
@@ -133,18 +135,21 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        menuIcon: this.$store.state.menu.menuIcon
-      }
-    },
-    created() {
-      this.menudata = this.$store.state.menu.menu;
-      console.log(this.menudata);
+    export default {
+        data() {
+            return {
+                menuIcon: this.$store.state.menu.menuIcon
+            }
+        },
+        created() {
+            this.menudata = this.$store.state.menu.menu;
+            console.log(this.menudata);
+        }
     }
-  }
+
 </script>
 
 <style lang="stylus" scoped>
+
+
 </style>

@@ -33,9 +33,7 @@
                 <span>{{ props.row.desc }}</span>
               </el-form-item>
               <el-form-item label="商品图片">
-
               </el-form-item>
-
             </el-form>
           </el-col>
           <el-col :span="12">
@@ -73,7 +71,7 @@
   </div>
 </template>
 <script>
-  import { mapGetters} from 'vuex'
+ import { mapGetters} from 'vuex'
   export default {
     data() {
       return {

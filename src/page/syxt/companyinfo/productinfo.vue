@@ -104,4 +104,5 @@
     .btns
       text-align right
       margin-bottom 10px
+
 </style>
