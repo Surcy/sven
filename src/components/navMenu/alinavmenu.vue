@@ -62,14 +62,16 @@
                 <span class="nav-title ng-binding">基本企业信息</span>
               </a>
             </li>
+            <router-link to="/landinfo">
             <li class="nav-item ng-scope">
-              <a href="javascript:;" data-submenu="3"  class="ng-scope">
+              <a href="javascript:;" class="ng-scope">
                 <div class="nav-icon">
                   <span class="glyphicon glyphicon-user"></span>
                 </div>
                 <span class="nav-title ng-binding">地块管理</span>
               </a>
             </li>
+            </router-link>
             <li class="nav-item ng-scope">
               <a href="javascript:;" data-submenu="4" data-count="3" data-url="Admin/Access/index"
                  class="ng-scope">

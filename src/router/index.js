@@ -43,7 +43,11 @@ const router = new Router({
 		{
 			path: '/localUser',
 			component: require('../page/user/localUserInfo.vue')
-		}
+		},
+    {
+      path: '/landinfo',
+      component: require('../page/syxt/companyinfo/landinfo.vue')
+    }
   ]
 });
 
