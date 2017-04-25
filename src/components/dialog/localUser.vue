@@ -1,13 +1,22 @@
 <template>
-  <div class="product">
-    <el-form :model="product">
-      <el-form-item label="产品名称" :label-width="formLabelWidth">
-        <el-input v-model="product.name" auto-complete="off"></el-input>
+  <div class="user">
+    <el-form :model="currentUser">
+      <el-form-item label="用户名称" :label-width="formLabelWidth">
+        <el-input v-model="currentUser.name" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="产品介绍" :label-width="formLabelWidth">
-        <el-input v-model="product.desc" auto-complete="off"></el-input>
+      <el-form-item label="负责人名称" :label-width="formLabelWidth">
+        <el-input v-model="currentUser.people" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="产品图片" :label-width="formLabelWidth">
+      <el-form-item label="手机号码" :label-width="formLabelWidth">
+        <el-input v-model="currentUser.phone" auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="所属区域" :label-width="formLabelWidth">
+        <el-input v-model="currentUser.district" auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="地址" :label-width="formLabelWidth">
+        <el-input v-model="currentUser.address" auto-complete="off"></el-input>
+      </el-form-item>
+      <!--<el-form-item label="产品图片" :label-width="formLabelWidth">
         <el-upload
           class="avatar-uploader"
           action="https://jsonplaceholder.typicode.com/posts/"
@@ -17,10 +26,9 @@
           <img v-if="imageUrl" :src="imageUrl" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
-      </el-form-item>
+      </el-form-item>-->
     </el-form>
   </div>
-
 </template>
 <script>
     export default {
@@ -33,17 +41,20 @@
         return {
           form: {
             name: '',
-            desc: ''
+            people: '',
+						phone: '',
+						district: '',
+						address: ''
           },
           formLabelWidth: '120px',
-          imageUrl: ''
+          //imageUrl: ''
         }
       },
       computed: {
-        product:function () {
-          return this.$store.state.product.product;
+        currentUser:function () {
+          return this.$store.state.localUser.currentUser;
         }
-      },
+      }/*,
       methods:{
         handleAvatarSuccess(res, file) {
           this.imageUrl = URL.createObjectURL(file.raw);
@@ -60,35 +71,14 @@
           }
           return isJPG && isLt2M;
         }
-      }
+      }*/
     }
 </script>
 
 <style lang="stylus" scoped>
-  .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+	.user {width:280px;}
+	.el-dialog--tiny {
+    width: 100%;
   }
-  .avatar-uploader .el-upload:hover {
-    border-color: #20a0ff;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
-  }
-  .el-upload__input {
-    display: none !important;
-  }
+
 </style>

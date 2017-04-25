@@ -19,7 +19,8 @@
             </div>
           </div>
           <ul class="entrance-nav sidebar-trans" id="nav" style="height:auto;">
-            <li class="nav-item ng-scope">
+           <router-link to="/register">
+                <li class="nav-item ng-scope">
               <a class="ng-scope">
                 <div class="nav-icon">
                   <span class="glyphicon glyphicon-tasks"></span>
@@ -27,6 +28,7 @@
                 <span class="nav-title ng-binding">注册</span>
               </a>
             </li>
+           </router-link>
             <li class="nav-item ng-scope">
               <a href="javascript:;" data-submenu="3" data-count="4" data-url="Admin/Member/index"
                  class="ng-scope">
@@ -60,16 +62,14 @@
                 <span class="nav-title ng-binding">基本企业信息</span>
               </a>
             </li>
-            <router-link to="/landinfo">
             <li class="nav-item ng-scope">
-              <a href="javascript:;" class="ng-scope">
+              <a href="javascript:;" data-submenu="3"  class="ng-scope">
                 <div class="nav-icon">
                   <span class="glyphicon glyphicon-user"></span>
                 </div>
                 <span class="nav-title ng-binding">地块管理</span>
               </a>
             </li>
-            </router-link>
             <li class="nav-item ng-scope">
               <a href="javascript:;" data-submenu="4" data-count="3" data-url="Admin/Access/index"
                  class="ng-scope">
@@ -135,17 +135,21 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        menuIcon: this.$store.state.menu.menuIcon
-      }
-    },
-    created() {
-      this.menudata = this.$store.state.menu.menu;
+    export default {
+        data() {
+            return {
+                menuIcon: this.$store.state.menu.menuIcon
+            }
+        },
+        created() {
+            this.menudata = this.$store.state.menu.menu;
+            console.log(this.menudata);
+        }
     }
-  }
+
 </script>
 
 <style lang="stylus" scoped>
+
+
 </style>

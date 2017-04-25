@@ -44,15 +44,17 @@
         </li>
       </ul>
       <ul class="submenu-3 hidden" data-submenu="3">
-        <li>
-          <div class="ng-isolate-scope">
-            <a href="javascript:;" data-url="/index.php?s=/Admin/Member/localUser.html"
-               class="ng-scope">
-              <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">本地用户</div>
-            </a>
-          </div>
-        </li>
+				 <router-link to="/localUser">
+					 <li>
+							<div class="ng-isolate-scope">
+								<a href="javascript:;" data-url="/index.php?s=/Admin/Member/localUser.html"
+									 class="ng-scope">
+									<div class="nav-icon"></div>
+									<div class="nav-title ng-binding">本地用户</div>
+								</a>
+							</div>
+						</li>
+				 </router-link>
         <li>
           <div class="ng-isolate-scope">
             <a href="javascript:;" data-url="/index.php?s=/Admin/Member/oauth.html"

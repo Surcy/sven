@@ -57,7 +57,17 @@ const getters = {
       }
     }
     return filterList;
-  }
+  },
+	/*A:state => {
+		return [{
+			id: '1',
+			user: '22222',
+			people: '负责222人姓名',
+			phone: '333',
+			district: '合444肥市',
+			address: '安徽省合肥市长江西路130号'
+		}]
+	}*/
 };
 
 const actions = {
