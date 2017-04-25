@@ -122,7 +122,6 @@
       handleCurrentChange(val) {
         this.currentRow = val;
         this.$store.state.product.product = val;
-        console.log(this.currentRow);
       },
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);

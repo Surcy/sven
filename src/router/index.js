@@ -36,6 +36,10 @@ const router = new Router({
       path: '/productinfo',
       component: require('../page/syxt/companyinfo/productinfo.vue')
     },
+    {
+      path: '/landinfo',
+      component: require('../page/syxt/companyinfo/landinfo.vue')
+    },
   ]
 });
 

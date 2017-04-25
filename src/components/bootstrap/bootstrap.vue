@@ -41,6 +41,26 @@
 
     <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
     <button type="button" class="btn btn-link">（链接）Link</button>
+    <table class="table">
+      <tr>
+        <th>编号</th>
+        <th>名称</th>
+        <th>结果</th>
+        <th>历史1</th>
+        <th>历史2</th>
+        <th>参考值</th>
+        <th>提示</th>
+      </tr>
+      <tr>
+        <td>01</td>
+        <td><img class="star" lt="star" title="star"/>白细胞计数</td>
+        <td>2.4</td>
+        <td>2.6</td>
+        <td>2.8</td>
+        <td>2.1-3.2  10^g/L</td>
+        <td>web</td>
+      </tr>
+    </table>
   </div>
 </template>
 

@@ -8,6 +8,7 @@ import Vuex from 'vuex'
 import dashboard from './modules/dashboard'
 import menu from './modules/menu'
 import product from './modules/product'
+import land from './modules/land'
 
 Vue.use(Vuex);
 
@@ -19,7 +20,8 @@ export default new Vuex.Store({
   modules: {
     dashboard,
     menu,
-    product
+    product,
+    land
   },
   // strict: debug,
   // plugins: debug ? [createLogger()] : []

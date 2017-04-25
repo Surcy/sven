@@ -79,9 +79,6 @@
           });
         }
       }
-//      ...mapActions([
-//          'addProductAsync'
-//      ])
     },
     components:{
       productTable,
