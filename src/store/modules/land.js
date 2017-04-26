@@ -30,7 +30,7 @@ const state = {
       wd:'北纬N30°07′20.48″',
       area:'921亩'
     }, {
-      id: '1',
+      id: '2',
       companyName: '黄山小荷里茶业有限公司',
       landName: '谭家桥茶林场6队',
       charger: '叶增明',
@@ -40,7 +40,7 @@ const state = {
       wd:'北纬N30°07′20.48″',
       area:'921亩'
     }, {
-      id: '1',
+      id: '3',
       companyName: '黄山小荷里茶业有限公司',
       landName: '谭家桥茶林场6队',
       charger: '叶增明',
@@ -50,7 +50,7 @@ const state = {
       wd:'北纬N30°07′20.48″',
       area:'921亩'
     }, {
-      id: '1',
+      id: '4',
       companyName: '六安瓜片',
       landName: '谭家桥茶林场6队',
       charger: '叶增明',
@@ -60,7 +60,7 @@ const state = {
       wd:'北纬N30°07′20.48″',
       area:'921亩'
     },{
-      id: '1',
+      id: '5',
       companyName: '六安瓜片',
       landName: '谭家桥茶林场6队',
       charger: '叶增明',
@@ -71,23 +71,13 @@ const state = {
       area:'921亩'
     }],
   land:{},
+  currentIndex:'',
   filterKey:'',
   showDialog:false
 };
 
 const getters = {
-  filterList(state) {
-    let list = state.landList;
-    let filterKey = state.filterKey && state.filterKey.trim()
-    if (filterKey) {
-      list = list.filter(function (row) {
-        return Object.keys(row).some(function (key) {
-          return String(row[key]).indexOf(filterKey)>-1
-        })
-      })
-    }
-    return list;
-  }
+
 };
 
 const actions = {
@@ -102,12 +92,22 @@ const mutations = {
   //改变弹窗显示状态
   updateShowDialog(state){
     state.showDialog = !state.showDialog;
-    console.log(state.showDialog);
   },
   //改变地块信息
   updateLand(state, payLoad){
     state.land = payLoad.land;
-    console.log(state.land);
+  },
+  //删除地块信息
+  delLand(state){
+    let list = state.landList;
+    let landId = state.land && state.land.id;
+        for (let i=0;i<list.length;i++){
+          if (list[i].id === landId){
+            list.splice(i, 1);
+            state.land = {};
+          }
+        }
+    return list;
   }
 };
 

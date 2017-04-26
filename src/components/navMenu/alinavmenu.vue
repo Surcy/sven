@@ -145,7 +145,6 @@
         },
         created() {
             this.menudata = this.$store.state.menu.menu;
-            console.log(this.menudata);
         }
     }
 
