@@ -102,80 +102,89 @@
         </li>
       </ul>
       <ul class="submenu-4 hidden" data-submenu="4">
+       <router-link to="/manufacture">
         <li>
           <div class="ng-isolate-scope">
             <a href="javascript:;" data-url="/index.php?s=/Admin/Access/authList.html"
                class="ng-scope">
               <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">管理列表</div>
+              <div class="nav-title ng-binding">加工台账</div>
             </a>
           </div>
         </li>
+	      </router-link>
+	      <router-link to="/fertilize">
         <li>
           <div class="ng-isolate-scope">
             <a href="javascript:;" data-url="/index.php?s=/Admin/Access/roleList.html"
                class="ng-scope">
               <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">角色列表</div>
+              <div class="nav-title ng-binding">施肥台账</div>
             </a>
           </div>
         </li>
+	      </router-link>
+	      <router-link to="/pesticide">
         <li>
           <div class="ng-isolate-scope">
             <a href="javascript:;" data-url="/index.php?s=/Admin/Access/nodeList.html"
                class="ng-scope">
               <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">节点列表</div>
+              <div class="nav-title ng-binding">施药台账</div>
             </a>
           </div>
         </li>
+	      </router-link>
+	      <router-link to="/weed">
+        <li>
+          <div class="ng-isolate-scope">
+            <a href="javascript:;" data-url="/index.php?s=/Admin/Access/nodeList.html"
+               class="ng-scope">
+              <div class="nav-icon"></div>
+              <div class="nav-title ng-binding">除草台账</div>
+            </a>
+          </div>
+        </li>
+	      </router-link>
+        <router-link to="/pluck">
+        <li>
+          <div class="ng-isolate-scope">
+            <a href="javascript:;" data-url="/index.php?s=/Admin/Access/nodeList.html"
+               class="ng-scope">
+              <div class="nav-icon"></div>
+              <div class="nav-title ng-binding">采摘台账</div>
+            </a>
+          </div>
+        </li>
+	     </router-link>
+	     <li>
+       </li>
       </ul>
       <ul class="submenu-11 hidden" data-submenu="11">
+        <router-link to="/inputFer">
         <li>
           <div class="ng-isolate-scope">
             <a href="javascript:;" data-url="/index.php?s=/Admin/Database/exportList.html"
                class="ng-scope">
               <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">备份数据</div>
+              <div class="nav-title ng-binding">肥料信息</div>
             </a>
           </div>
         </li>
+	      </router-link>
+	      <router-link to="/inputPes">
         <li>
           <div class="ng-isolate-scope">
             <a href="javascript:;" data-url="/index.php?s=/Admin/Database/importList.html"
                class="ng-scope">
               <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">还原数据</div>
+              <div class="nav-title ng-binding">农药信息</div>
             </a>
           </div>
         </li>
-        <li>
-          <div class="ng-isolate-scope">
-            <a href="javascript:;" data-url="/index.php?s=/Admin/Database/repairList.html"
-               class="ng-scope">
-              <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">优化修复</div>
-            </a>
-          </div>
-        </li>
-        <li>
-          <div class="ng-isolate-scope">
-            <a href="javascript:;" data-url="/index.php?s=/Admin/Database/zipList.html"
-               class="ng-scope">
-              <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">压缩列表</div>
-            </a>
-          </div>
-        </li>
-        <li>
-          <div class="ng-isolate-scope">
-            <a href="javascript:;" data-url="/index.php?s=/Admin/Database/fileList.html"
-               class="ng-scope">
-              <div class="nav-icon"></div>
-              <div class="nav-title ng-binding">文件管理</div>
-            </a>
-          </div>
-        </li>
+	     </router-link>
+	     <li>
+       </li>
       </ul>
       <ul class="submenu-13 hidden" data-submenu="13">
         <li>
