@@ -26,7 +26,7 @@ const router = new Router({
     },
     {
       path: '/bootstrap',
-      component: require('../components/bootstrap/bootstrap.vue')
+       component:require('../components/bootstrap/bootstrap.vue')
     },
     {
       path: '/basicinfo',
@@ -47,6 +47,34 @@ const router = new Router({
     {
       path: '/landinfo',
       component: require('../page/syxt/companyinfo/landinfo.vue')
+    },
+		{
+      path: '/manufacture',
+      component: require('../page/syxt/ppm/manufacture.vue')
+    },
+		{
+      path: '/fertilize',
+      component: require('../page/syxt/ppm/fertilize.vue')
+    },
+		{
+      path: '/pesticide',
+      component: require('../page/syxt/ppm/pesticide.vue')
+    },
+		{
+      path: '/weed',
+      component: require('../page/syxt/ppm/weed.vue')
+    },
+		{
+      path: '/pluck',
+      component: require('../page/syxt/ppm/pluck.vue')
+    },
+		{
+      path: '/inputFer',
+      component: require('../page/syxt/ppm/inputFer.vue')
+    },
+		{
+      path: '/inputPes',
+      component: require('../page/syxt/ppm/inputPes.vue')
     }
   ]
 });

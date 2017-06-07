@@ -10,10 +10,10 @@
     <div class="content">
       <div class="btns">
         <el-button-group>
-          <el-button type="primary" @click="showBaiduMap = true">地块查看<i class="el-icon-search el-icon--right"></i></el-button>
-          <el-button type="primary" @click="showAddLand">添加<i class="el-icon-plus el-icon--right"></i></el-button>
-          <el-button type="primary" @click="showUpdateLand">修改<i class="el-icon-edit el-icon--right"></i></el-button>
-          <el-button type="primary" @click="delLand" :loading="delState">删除<i class="el-icon-delete el-icon--right"></i></el-button>
+          <!--<el-button type="primary" @click="showBaiduMap = true">地块查看<i class="el-icon-search el-icon--right"></i></el-button>-->
+          <el-button type="primary" @click="showAddInfo">添加<i class="el-icon-plus el-icon--right"></i></el-button>
+          <el-button type="primary" @click="showUpdateInfo">修改<i class="el-icon-edit el-icon--right"></i></el-button>
+          <el-button type="primary" @click="delInfo" :loading="delState">删除<i class="el-icon-delete el-icon--right"></i></el-button>
         </el-button-group>
       </div>
       <el-table
@@ -25,7 +25,8 @@
         <el-table-column
           v-for="item in title"
           :label="item.name"
-          :prop="item.alia">
+          :prop="item.alia"
+				  >
         </el-table-column>
       </el-table>
       <div class="block">
@@ -39,149 +40,135 @@
           :total="totalLen">
         </el-pagination>
       </div>
-      <!--百度地图开始-->
-      <el-dialog title="查看地块位置" size="large" v-model="showBaiduMap" :modal-append-to-body="false">
-        <landMap></landMap>
-      </el-dialog>
-      <!--百度地图结束-->
-      <!--添加地块开始-->
-      <el-dialog :title="addOrSaveTxt" v-model="showLandDialog" :modal-append-to-body="false">
-        <el-form :inline="true" label-position="right" :model="landForm" class="demo-form-inline">
+      <!--添加采摘信息开始-->
+      <el-dialog :title="addOrSaveTxt" v-model="showInfoDialog" :modal-append-to-body="false">
+        <el-form :inline="true" label-position="right" :model="infoForm" class="demo-form-inline">
           <el-row :gutter="10">
             <el-col :xs="12" :sm="12" :md="12" :lg="12">
               <el-form-item label-width="80px" label="企业名称">
-                <el-input v-model="landForm.companyName" placeholder="企业名称"></el-input>
+                <el-input v-model="infoForm.companyName" placeholder="企业名称"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="12" :sm="12" :md="12" :lg="12">
               <el-form-item label-width="80px" label="地块名称">
-                <el-input v-model="landForm.landName" placeholder="地块名称"></el-input>
+                <el-input v-model="infoForm.landName" placeholder="地块名称"></el-input>
+              </el-form-item>
+            </el-col>
+						<el-col :xs="12" :sm="12" :md="12" :lg="12">
+              <el-form-item label-width="80px" label="产品名称">
+                <el-input v-model="infoForm.proName" placeholder="产品名称"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="12" :sm="12" :md="12" :lg="12">
               <el-form-item label-width="80px" label="负责人" >
-                <el-input v-model="landForm.charger" placeholder="负责人"></el-input>
+                <el-input v-model="infoForm.charger" placeholder="负责人"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="12" :sm="12" :md="12" :lg="12">
               <el-form-item label-width="80px" label="联系方式">
-                <el-input v-model="landForm.phone" placeholder="联系方式"></el-input>
+                <el-input v-model="infoForm.phone" placeholder="联系方式"></el-input>
               </el-form-item>
             </el-col>
             <el-col :xs="12" :sm="12" :md="12" :lg="12">
-              <el-form-item label-width="80px" label="经度">
-                <el-input v-model="landForm.jd" placeholder="经度"></el-input>
+              <el-form-item label-width="80px" label="采摘量">
+                <el-input v-model="infoForm.pluAmount" placeholder="采摘量"></el-input>
               </el-form-item>
             </el-col>
-            <el-col :xs="12" :sm="12" :md="12" :lg="12">
-              <el-form-item label-width="80px" label="纬度">
-                <el-input v-model="landForm.wd" placeholder="纬度"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :xs="12" :sm="12" :md="12" :lg="12">
-              <el-form-item label-width="80px" label="面积">
-                <el-input v-model="landForm.area" placeholder="面积"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :xs="12" :sm="12" :md="12" :lg="12">
-              <el-form-item label-width="80px" label="海拔">
-                <el-input v-model="landForm.height" placeholder="海拔"></el-input>
+						<el-col :xs="12" :sm="12" :md="12" :lg="12">
+              <el-form-item label-width="80px" label="采摘日期">
+                <el-date-picker v-model="infoForm.pluTime" type="date" placeholder="选择日期范围">
+								</el-date-picker>
               </el-form-item>
             </el-col>
           </el-row>
         </el-form>
         <div class="btns">
-          <el-button @click="showLandDialog = false">取消</el-button>
-          <el-button v-if="addOrSave === 'add'" type="primary" @click="addLand">添加</el-button>
-          <el-button v-else-if="addOrSave === 'save'" type="primary" @click="showLandDialog = false">保存</el-button>
+          <el-button @click="showInfoDialog = false">取消</el-button>
+          <el-button v-if="addOrSave === 'add'" type="primary" @click="addInfo">添加</el-button>
+          <el-button v-else-if="addOrSave === 'save'" type="primary" @click="showInfoDialog = false">保存</el-button>
         </div>
       </el-dialog>
-      <!--添加地块结束-->
+      <!--添加采摘信息结束-->
     </div>
   </div>
 </template>
 <script>
-  import landMap from '../../../components/baidumap/landMap.vue'
   export default {
     data() {
       return {
         filterKey:'',
         delState:false,
         formLabelWidth: '100px',
+				/*manuTime:'',*/
         title:[
           {"name":"ID","alia":"id"},
           {"name":"生产企业名称","alia":"companyName"},
           {"name":"地块名称","alia":"landName"},
-          {"name":"地块负责人","alia":"charger"},
-          {"name":"海拔","alia":"height"},
-          {"name":"联系方式","alia":"phone"},
-          {"name":"经度","alia":"jd"},
-          {"name":"纬度","alia":"wd"},
-          {"name":"面积","alia":"area"},
+					{"name":"产品名称","alia":"proName"},
+          {"name":"采摘负责人","alia":"charger"},
+					{"name":"联系方式","alia":"phone"},
+					{"name":"采摘量","alia":"pluAmount"},
+					{"name":"采摘时间","alia":"pluTime"},
         ],
-        landList:[
+        infoList:[
           {
             id: '1',
             companyName: '黄山小荷里茶业有限公司',
             landName: '谭家桥茶林场6队',
+						proName: '产品名称',
             charger: '叶增明',
-            height: '100',
             phone: '联系方式',
-            jd: '东经E118°16′48.34″',
-            wd:'北纬N30°07′20.48″',
-            area:'921亩'
+						pluAmount: '采摘量',
+            pluTime: '2017/05/11'
           },
           {
             id: '2',
             companyName: '黄山小荷里茶业有限公司',
             landName: '谭家桥茶林场6队',
+						proName: '产品名称',
             charger: '叶增明',
-            height: '100',
             phone: '联系方式',
-            jd: '东经E118°16′48.34″',
-            wd:'北纬N30°07′20.48″',
-            area:'921亩'
+						pluAmount: '采摘量',
+            pluTime: '2017/05/11'
           },
           {
             id: '3',
             companyName: '黄山小荷里茶业有限公司',
             landName: '谭家桥茶林场6队',
+						proName: '产品名称',
             charger: '叶增明',
-            height: '100',
             phone: '联系方式',
-            jd: '东经E118°16′48.34″',
-            wd:'北纬N30°07′20.48″',
-            area:'921亩'
+						pluAmount: '采摘量',
+            pluTime: '2017/05/11'
           },
           {
             id: '4',
-            companyName: '六安瓜片',
+            companyName: '黄山小荷里茶业有限公司',
             landName: '谭家桥茶林场6队',
+						proName: '产品名称',
             charger: '叶增明',
-            height: '100',
             phone: '联系方式',
-            jd: '东经E118°16′48.34″',
-            wd:'北纬N30°07′20.48″',
-            area:'921亩'
+						pluAmount: '采摘量',
+            pluTime: '2017/05/11'
           },
           {
             id: '5',
-            companyName: '六安瓜片',
+            companyName: '黄山小荷里茶业有限公司',
             landName: '谭家桥茶林场6队',
+						proName: '产品名称',
             charger: '叶增明',
-            gender: '男',
             phone: '联系方式',
-            jd: '东经E118°16′48.34″',
-            wd:'北纬N30°07′20.48″',
-            area:'921亩'
+						pluAmount: '采摘量',
+            pluTime: '2017/05/11'
           }],
         currentPage:1,
         pageSize:2,
         totalLen:0,
         showBaiduMap:false,
-        showLandDialog:false,
-        selectLand:{},
-        landForm:{
+        showInfoDialog:false,
+        selectInfo:{},
+
+        infoForm:{
 //          id:'',
 //          companyName:'',
 //          landName:'',
@@ -203,7 +190,7 @@
     },
     computed:{
       filterList(){
-        let newData = this.landList;
+        let newData = this.infoList;
         let filterKey = this.filterKey && this.filterKey.trim();
         if (filterKey) {
           newData = newData.filter(function (row) {
@@ -226,60 +213,60 @@
         this.currentPage = val;
       },
       //显示添加模态框
-      showAddLand(){
-        this.landForm={};
+      showAddInfo(){
+        this.infoForm={};
         this.addOrSave = 'add';
-        this.addOrSaveTxt = '添加地块';
-        this.showLandDialog = true;
+        this.addOrSaveTxt = '添加信息';
+        this.showInfoDialog = true;
       },
-      //添加地块信息
-      addLand(){
-        this.landForm.id = this.filterList.length?this.filterList[this.filterList.length-1].id*1+1:1;
-        this.filterList.push(this.landForm);
-        this.showLandDialog = false;
+      //添加加工信息
+      addInfo(){
+        this.infoForm.id = this.filterList.length?this.filterList[this.filterList.length-1].id*1+1:1;
+        this.filterList.push(this.infoForm);
+        this.showInfoDialog = false;
       },
-      //显示修改地块信息模态框
-      showUpdateLand (){
-          if (!this.selectLand.id){
+      //显示修改加工信息模态框
+      showUpdateInfo (){
+          if (!this.selectInfo.id){
             this.$message({
-              message: '请选择需要修改的地块',
+              message: '请选择需要修改的信息',
               type: 'success'
             });
             return false;
           }
-          this.landForm= this.selectLand;
+          this.infoForm= this.selectInfo;
           this.addOrSave = 'save';
-          this.addOrSaveTxt = '保存地块';
-          this.showLandDialog = true;
+          this.addOrSaveTxt = '保存信息';
+          this.showInfoDialog = true;
       },
-      //删除地块信息
-      delLand(){
-        if (!this.selectLand.id){
+      //删除加工信息
+      delInfo(){
+        if (!this.selectInfo.id){
           this.$message({
-            message: '请选择需要删除的地块',
+            message: '请选择需要删除的信息',
             type: 'success'
           });
           return false;
         }
         this.delState = true;
         setTimeout(_ => {
-          let landId = this.selectLand && this.selectLand.id;
+          let infoId = this.selectInfo && this.selectInfo.id;
           for (let i=0;i<this.filterList.length;i++){
-            if (this.filterList[i].id === landId){
+            if (this.filterList[i].id === infoId){
               this.filterList.splice(i, 1);
-              this.selectLand = {};
+              this.selectInfo = {};
             }
           }
           this.delState = false;
         },500)
       },
       handleRowClick(row, event, column){
-        this.selectLand = row;
+        this.selectInfo = row;
       }
-    },
+    }/*,
     components:{
       landMap
-    }
+    }*/
   }
 </script>
 
